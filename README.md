@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Team work
+(UI implementation) Teamwork is an internal social network for employees of an organization. The goal of this application is to facilitate more interaction between colleagues and promote team bonding
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[CLICK HERE FOR THE API IMPLEMENTATION](https://github.com/oluwatobiloba2000/team-work-api)
 
 ## Available Scripts
 

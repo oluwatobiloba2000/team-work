@@ -1,0 +1,59 @@
+.logo_name{
+    width: fit-content;
+    font-family: Apple-System, Arial, Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', STXihei, sans-serif;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #5b332c;
+}
+
+.corner_one{
+    background: #fd9401;
+    width: 25px;
+    height: 25px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.corner_two{
+    background: #160e1a;
+    width: 25px;
+    height: 25px;
+    margin: 0 0 2px 2px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+.corner_three{
+    background: rgb(230, 0, 126);
+    width: 25px;
+    height: 25px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.corner_four{
+    background: #62829a;
+    width: 25px;
+    height: 25px;
+    margin-left: 2px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.logo_container{
+    display: flex;
+    height: 56px;
+    width: 140px;
+}
+
+.logo_corner_container{
+    width: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 54px;
+}

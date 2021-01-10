@@ -12,11 +12,12 @@ export default function AdminPanel(props) {
     const [invitedUserLink, setInvitedUserLink] = useState();
     const [showInviteUsersModal, setShowInviteUsersModal] = useState(false);
     const [flaggedPosts, setFlaggedPosts] = useState([]);
-    const [flaggedComments, setFlaggedComments] = useState([]);
+    // const [flaggedComments, setFlaggedComments] = useState([]);
 
     useEffect(() => {
         fetchFlaggedPost();
         // fetchFlaggedComment();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const inviteUser = () => {
@@ -35,7 +36,6 @@ export default function AdminPanel(props) {
                 email: emailToInvite
             })
                 .then(function (response) {
-                    console.log("🚀 ~ file: admin_panel.js ~ line 24 ~ response", { response })
                     setInviteUserLoading(false)
                     // handle success
                     if (response.status === 200) {
@@ -82,15 +82,9 @@ export default function AdminPanel(props) {
     const fetchFlaggedPost = () =>{
         axios.get(`/post/${currentOrgId}/flagged`)
             .then(function (response) {
-                console.log("flagged posts", { response })
-                // setInviteUserLoading(false)
                 // handle success
                 if (response.status === 200) {
                     setFlaggedPosts(response.data.data)
-                    // Notification['success']({
-                    //     title: 'Success',
-                    //     description: `Flagged posts fetched Successful`
-                    // });
                 }
             })
             .catch(function (error) {
@@ -117,43 +111,43 @@ export default function AdminPanel(props) {
             });
     }
 
-    const fetchFlaggedComment  = () => {
-        axios.get(`/comment/${currentOrgId}/flagged`)
-        .then(function (response) {
-            console.log("flagged comment", { response })
-            // setInviteUserLoading(false)
-            // handle success
-            if (response.status === 200) {
-                setFlaggedComments(response.data.data);
-                // Notification['success']({
-                //     title: 'Success',
-                //     description: `Flagged comment fetched Successful`
-                // });
-            }
-        })
-        .catch(function (error) {
-            // setInviteUserLoading(false)
-            if (error.message.indexOf('403') !== -1) {
-                Notification['error']({
-                    title: 'Authentication Error',
-                    description: 'You have to login'
-                });
-                setTimeout(() => {
-                    componentProps.history.push('/auth/login')
-                }, 2000)
-            } else if (error.message.indexOf('Network Error') !== -1) {
-                Notification['warning']({
-                    title: 'Network Error',
-                    description: 'Looks Like you are not connected to the internet'
-                });
-            } else {
-                Notification['error']({
-                    title: 'Task Error',
-                    description: `${error.response.data.message} or has been invited`
-                });
-            }
-        });
-    }
+    // const fetchFlaggedComment  = () => {
+    //     axios.get(`/comment/${currentOrgId}/flagged`)
+    //     .then(function (response) {
+    //         console.log("flagged comment", { response })
+    //         // setInviteUserLoading(false)
+    //         // handle success
+    //         if (response.status === 200) {
+    //             setFlaggedComments(response.data.data);
+    //             // Notification['success']({
+    //             //     title: 'Success',
+    //             //     description: `Flagged comment fetched Successful`
+    //             // });
+    //         }
+    //     })
+    //     .catch(function (error) {
+    //         // setInviteUserLoading(false)
+    //         if (error.message.indexOf('403') !== -1) {
+    //             Notification['error']({
+    //                 title: 'Authentication Error',
+    //                 description: 'You have to login'
+    //             });
+    //             setTimeout(() => {
+    //                 componentProps.history.push('/auth/login')
+    //             }, 2000)
+    //         } else if (error.message.indexOf('Network Error') !== -1) {
+    //             Notification['warning']({
+    //                 title: 'Network Error',
+    //                 description: 'Looks Like you are not connected to the internet'
+    //             });
+    //         } else {
+    //             Notification['error']({
+    //                 title: 'Task Error',
+    //                 description: `${error.response.data.message} or has been invited`
+    //             });
+    //         }
+    //     });
+    // }
 
     const handleDeletePost = (postId) => {
         axios.delete(`/post/${currentOrgId}/flagged/${postId}/delete`)
@@ -245,7 +239,7 @@ export default function AdminPanel(props) {
                             <div className="poster_pics_and_name_container">
                                 {post.profile_img ? 
                                 <img alt="avatar" src={post.profile_img} /> :
-                                <img alt="avatar" src={`https://ui-avatars.com/api/?name=${post.firstname} ${post.lastname}`} />}
+                                 <img alt="avatar" src={`https://ui-avatars.com/api/?name=${post.firstname} ${post.lastname}`} />}
                                 <div>
                                     <h5>{post.firstname} {post.lastname}</h5>
                                     <div className="post_time_and_privacy">{dayjs(post.createdat).fromNow()} <div className="dot"></div>{'public'}</div>

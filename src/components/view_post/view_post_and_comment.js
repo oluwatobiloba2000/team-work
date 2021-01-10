@@ -30,6 +30,7 @@ function ViewPost(props) {
             setOpen(false)
         }
 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props, postId])
 
     const handleClose = () => {
@@ -41,7 +42,6 @@ function ViewPost(props) {
         setLoadingComments(true)
         axios.get(`/comment/${postId}/all`)
             .then(function (response) {
-                console.log("🚀 ~ file: view_post_and_comment.js ~ line 40 ~ response", response)
 
                 setComment(response.data.data)
                 return setLoadingComments(false)
@@ -79,8 +79,6 @@ function ViewPost(props) {
         setLoadingPost(true)
         axios.get(`/post/${postId}`)
             .then(function (response) {
-                console.log("🚀 ~ file: view_post_and_comment.js ~ line 40 ~ response", response)
-                console.log("comment cou", response)
                 setPost(response.data.data.comentCount.count);
                 setPost(response.data.data.post[0]);
                 fetchCommments();
@@ -121,7 +119,6 @@ function ViewPost(props) {
             comment: commentInputValue
         })
             .then(function (response) {
-                console.log({ responseFromCommentPosted: response })
                 setCommentInputValue('')
                 return fetchCommments();
                 // return setLoa(false)
@@ -208,42 +205,25 @@ function ViewPost(props) {
                                     <div className="comments">
                                         {loadingComments ? <Loader /> :
                                             <>
-                                                {/* <Timeline className="post_owner_comments custom-timeline">
-                                      {comment.postOwnerComments ?
-                                          comment.postOwnerComments.map((comment) =>
-                                            <Timeline.Item  dot={<img style={{ width: '29px' }} alt="avatar" src={comment.profile_img ? comment.profile_img : `https://ui-avatars.com/api/?name=${comment.firstname} ${comment.lastname}`} />}>
-                                                <div style={{ display: 'flex', alignItems: 'center' }}>
-                                                    <h6 style={{ fontSize: '12px' }}>{comment.firstname} {comment.lastname} </h6>
-                                                    <div className="dot"></div>
-                                                    <span className="comment_time">{dayjs(comment.createdat).fromNow()}</span>
-                                                </div>
-                                                <p>{comment.comment}</p>
-                                            </Timeline.Item>
-                                        )
-                                        : (
-                                          <Timeline.Item >
-                                         </Timeline.Item>)}
-                                    </Timeline> */}
-
                                                 {/* normal comment starts */}
                                                 <div className="normal_comments">
                                                     {
-                                                    (comment.comments && comment.comments.length > 0)
-                                                    ? comment.comments.map((comment) =>
-                                                        <div>
-                                                            <div style={{ marginTop: '15px' }} className="comment_pics_and_name poster_pics_and_name_container">
-                                                                {/* <div style={{display: 'flex', alignItems: 'center'}}> */}
-                                                                <img style={{ width: '29px' }} alt="avatar" src={comment.profile_img ? comment.profile_img : `https://ui-avatars.com/api/?name=${comment.firstname} ${comment.lastname}`} />
-                                                                <h6 style={{ fontSize: '12px' }}>{comment.firstname} {comment.lastname} </h6>
-                                                                <div className="dot"></div>
-                                                                <span className="comment_time">{dayjs(comment.createdat).fromNow()}</span>
-                                                                {/* </div> */}
-                                                            </div>
-                                                            <p>{comment.comment}</p>
-                                                        </div>
+                                                        (comment.comments && comment.comments.length > 0)
+                                                            ? comment.comments.map((comment) =>
+                                                                <div>
+                                                                    <div style={{ marginTop: '15px' }} className="comment_pics_and_name poster_pics_and_name_container">
+                                                                        {/* <div style={{display: 'flex', alignItems: 'center'}}> */}
+                                                                        <img style={{ width: '29px' }} alt="avatar" src={comment.profile_img ? comment.profile_img : `https://ui-avatars.com/api/?name=${comment.firstname} ${comment.lastname}`} />
+                                                                        <h6 style={{ fontSize: '12px' }}>{comment.firstname} {comment.lastname} </h6>
+                                                                        <div className="dot"></div>
+                                                                        <span className="comment_time">{dayjs(comment.createdat).fromNow()}</span>
+                                                                        {/* </div> */}
+                                                                    </div>
+                                                                    <p>{comment.comment}</p>
+                                                                </div>
 
-                                                    )
-                                                        : <h4 style={{ marginTop: '5px' }}>No comments </h4>
+                                                            )
+                                                            : <h4 style={{ marginTop: '5px' }}>No comments </h4>
                                                     }
 
                                                 </div>

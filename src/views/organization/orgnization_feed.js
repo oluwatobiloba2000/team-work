@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react'
 import './organization_feed.css';
 import { Container, Header, Content, Sidebar, Placeholder, Whisper, Tooltip, Avatar, Icon, Badge, Modal, Button, Panel, Notification, IconButton, Dropdown } from 'rsuite';
 import Logo from '../../components/logo/logo';
-// import {Schema } from 'rsuite';
 import CustomLoader from '../../components/loader/loader';
 import verifiedSvg from '../../img/verified.svg';
 import { Route, Switch, useParams, useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
-// import ViewPost from '../../components/view_post/view_post_and_comment';
 import AdminPanel from '../../components/admin_panel/admin_panel';
 import Posts from '../../components/posts/posts';
 const { Paragraph } = Placeholder;
@@ -21,36 +19,15 @@ export default function OrganizationFeed(props) {
         fullPageLoading: false
     });
     const [modalProfileView, setHandleModalProfileView] = useState(false);
-    // const { StringType } = Schema.Types;
-    // const model = Schema.Model({
-    //     name: StringType()
-    //         .isRequired('Name is required.')
-    //         .minLength(4, "Name Length should more than 4 characters long")
-    //         .maxLength(35, "Name should not exceed 35 characters"),
-    //     description: (StringType()
-    //         .isRequired('Description field is required.'))
-    // });
     const [userAccount, setUserAccountDetails] = useState([])
 
     const [orgDetails, setOrgDetails] = useState([])
     const [currentUserMemberDetailsState, setCurrentUserMemberDetails] = useState([])
 
-    // const [formValues, setFormValues] = useState({
-    //     name: '',
-    //     orgImg: '',
-    //     isPrivate: true,
-    //     previewOrgImg: '',
-    //     description: '',
-    //     headerImg: '',
-    // })
-
     function getUserAccount() {
         return axios.get('/user');
     }
 
-    // function getOrganizationFeed() {
-    //     return axios.get(`/org/${orgId}/feed`);
-    // }
 
     function getOrganizationDetails() {
         return axios.get(`/org/${orgId}/details`);
@@ -82,34 +59,7 @@ export default function OrganizationFeed(props) {
                     })
                 })
                 .catch((error) => {
-                    // setLoading(false)
-                    // if (error.message.indexOf('403') !== -1) {
-                    //     Notification['error']({
-                    //         title: 'Authentication Error',
-                    //         description: 'You have to login'
-                    //     });
-                    //     setTimeout(() => {
-                    //         props.history.push('/auth/login')
-                    //     }, 2000)
-                    // } else if (error.message.indexOf('Network Error') !== -1) {
-                    //     Notification['warning']({
-                    //         title: 'Network Error',
-                    //         description: 'Looks Like you are not connected to the internet'
-                    //     });
-                    //     setFullPageLoading({
-                    //         fullPageLoading: true,
-                    //         error: 'Looks Like you are not connected to the internet'
-                    //     })
-                    // } else {
-                    //     Notification['warning']({
-                    //         title: 'Server Error',
-                    //         description: 'Something went wrong'
-                    //     });
-                    //     setFullPageLoading({
-                    //         fullPageLoading: true,
-                    //         error: 'Something went wrong'
-                    //     })
-                    // }
+                 console.log(error);
                 })
 
         } else {
@@ -121,7 +71,7 @@ export default function OrganizationFeed(props) {
                 props.history.push('/auth/login')
             }, 2000)
         }
-        console.log({ orgId })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [orgId])
 
     return (
@@ -243,7 +193,6 @@ export default function OrganizationFeed(props) {
                 </Sidebar>
 
                 <Content className="org_content">
-                    {/* <div className="first_section_container"> */}
                         {/* SINGLE POSTS  */}
                         <Switch>
                             <Route exact path={`${url}`} >
@@ -253,11 +202,6 @@ export default function OrganizationFeed(props) {
                                 <AdminPanel props={props} url={url} userAccount={userAccount} currentOrgId={orgId} />
                             </Route>
                         </Switch>
-                    {/* </div> */}
-                    {/* <BrowserRouter> */}
-                        {/* <Switch>
-                        </Switch> */}
-                    {/* </BrowserRouter> */}
 
                 </Content>
             </Container>

@@ -39,8 +39,6 @@ function AcceptInvite(props) {
             if(urlEmail === state.userDetails.email){
                 axios.put(`/org/invite/${urlOrganizationID}/accept?invitekey=${urlInviteKey}`)
                 .then(function (response) {
-                    // console.log("🚀 ~ file: admin_panel.js ~ line 24 ~ response", {response})
-                    console.log({response})
                         setLoading(false)
                     // handle success
                     if (response.status === 200) {
@@ -55,7 +53,6 @@ function AcceptInvite(props) {
                     }
                 })
                 .catch(function (error) {
-                    // console.log(error)
                     setFullPageLoading({
                         fullPageLoading: false,
                         error: ''
@@ -75,14 +72,11 @@ function AcceptInvite(props) {
                         });
                     }
                 });
-                console.log('redirect user to the org')
             }else{
                 redirectToSignIn();
-                console.log('redirect user to signin')
             }
          }else{
              redirectToSignIn();
-             console.log('redirect user to signin')
          }
     }
 
@@ -90,7 +84,6 @@ function AcceptInvite(props) {
         setLoading(true)
     
         if(authTokenFromLocalStorage){
-            console.log('token is present')
             axios.defaults.headers.common['Authorization'] = `Bearer ${authTokenFromLocalStorage}`;
             setFullPageLoading({
                 fullPageLoading: false,
@@ -99,8 +92,8 @@ function AcceptInvite(props) {
               setLoading(false)
         }else{
             redirectToSignIn();
-            console.log('redirect user to signin')
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

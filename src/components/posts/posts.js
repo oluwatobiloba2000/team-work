@@ -125,7 +125,7 @@ export default function Posts(props) {
                         title: 'upload successful',
                         description: "Image has been uploaded"
                     })
-                    setGifFile(null)
+                    setGifFile('')
                     handlePost(response.data.data.secure_url)
                 }
             })
@@ -154,7 +154,7 @@ export default function Posts(props) {
     }
 
     const handlePost = (gifurl) => {
-        if (!gifFile) {
+        if (!gifFile || gifurl) {
             axios.post(`/post/${currentOrgId}/create`, {
                 gif: gifurl,
                 article,
@@ -331,7 +331,7 @@ export default function Posts(props) {
                                     </div>
                                     {post.gif &&
                                         <div className="post_gif_body">
-                                            <img src="https://cdn.dribbble.com/users/14268/screenshots/3244702/flip-flop.gif " alt="gif" />
+                                            <img src={post.gif} alt="gif" />
                                         </div>}
                                         <Link to={`${url}?post=${post.post_id || post.id}`}>
                                             <div className="comment_count_container">

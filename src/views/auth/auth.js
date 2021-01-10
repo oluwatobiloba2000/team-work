@@ -4,19 +4,18 @@ import Logo from '../../components/logo/logo';
 import SignupForm from '../../components/signup_form/signup_form';
 import samji_illustrator from '../../img/samji_illustrator.jpeg';
 import './auth.css';
-import { useStateContext } from '../../context/state';
+// import { useStateContext } from '../../context/state';
 import { useQuery } from '../../components/useQueryHook/useQuery';
 
 
 
 
 function Auth(props) {
-    const state = useStateContext();
+    // const state = useStateContext();
     const [authType, setAuthType] = useState('login');
     const query = useQuery()
 
     useEffect(()=>{
-        console.log(state);
         if(props.match.params && props.match.params.type === 'login'){
             setAuthType('login');
         }else if(props.match.params && props.match.params.type === 'signup'){

@@ -58,9 +58,6 @@ export default function CreateOrganization(props) {
         })
         .then(function (response) {
             setLoading({loading: false, message: ''});
-            console.log({'form values before creating the orgnization': formValues})
-            console.log("🚀 ~ file: createOrganization.js ~ line 54 ~ response", response)
-            // handle success
             if(response.status === 200){
               Notification["success"]({
                  title: 'upload successful',
@@ -72,7 +69,6 @@ export default function CreateOrganization(props) {
               }, 2000)
             })
             .catch(function (error) {
-              console.log("🚀 ~ file: view_organizations.js ~ line 32 ~ useEffect ~ error", error)
               setLoading({loading: false, message: ''})
               if(error.message.indexOf('403') !== -1){
                 Notification['error']({
@@ -113,12 +109,10 @@ export default function CreateOrganization(props) {
                     }
                 })
                 .then(function (response) {
-                  console.log("🚀 ~ file: createOrganization.js ~ line 110 ~ response", response)
                   // handle success
                   if(response.status === 200){
                     // setOrgImg(response.data.data.secure_url)
 
-                    console.log("form values after uploading", formValues, {url: response.data.data.secure_url})
                     Notification["success"]({
                        title: 'upload successful',
                        description: "organization profile Image has been uploaded"
@@ -127,7 +121,6 @@ export default function CreateOrganization(props) {
                   }
                   })
                   .catch(function (error) {
-                    console.log("🚀 ~ file: view_organizations.js ~ line 32 ~ useEffect ~ error", error)
                     setLoading({loading: false, message: ''})
                     if(error.message.indexOf('403') !== -1){
                       Notification['error']({
@@ -191,7 +184,7 @@ export default function CreateOrganization(props) {
             props.history.push('/auth/login')
             }, 2000)
         }
-        console.log({ formValues })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

@@ -56,7 +56,6 @@ function SignupForm(props) {
     const urlInviteKey = query.get('inviteKey');
 
    const handleSubmit = (data)=>{
-     console.log(data, formValues)
      if(!formValues.gender) return setGenderError(true);
      if(data){
        setGenderError(false)
@@ -65,7 +64,6 @@ function SignupForm(props) {
          .then(function (response) {
            setLoading(false)
            if(response.data.message === 'user created successfully'){
-             console.log("🚀 ~ file: signup_form.js ~ line 59 ~ response", response)
              Notification['success']({
                title: 'Signup Success',
                description: 'You have successfully Signed Up'
@@ -98,7 +96,6 @@ function SignupForm(props) {
                  description: 'Looks Like you are not connected to the internet'
                });
            }else{
-             console.log({error, message: error.message})
              return Notification['warning']({
                title: 'Server Error',
                description: 'Something went wrong'
@@ -137,7 +134,7 @@ function SignupForm(props) {
              borderTopRightRadius: '20px', width: '300px', background:' #160e1a'}} appearance="primary" type="submit">Submit</Button>
             </ButtonToolbar>
         </Form>
-        <div className="auth_link"><h5>Already have an account?</h5><Link to={props.email ? `/auth/login?entrypoint=invite&email=${props.email}&organizationID=${urlOrganizationID}&org=${urlOrgName}&inviteKey=${urlInviteKey}` : '/auth/login'}>login</Link></div>
+        <div classNamke="auth_link"><h5>Already have an account?</h5><Link to={props.email ? `/auth/login?entrypoint=invite&email=${props.email}&organizationID=${urlOrganizationID}&org=${urlOrgName}&inviteKey=${urlInviteKey}` : '/auth/login'}>login</Link></div>
         </div>
     )
 }

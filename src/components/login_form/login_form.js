@@ -7,7 +7,7 @@ import { useQuery } from '../useQueryHook/useQuery';
 import './login_form.css';
 
 function TextField(props) {
-  
+
   const { name, label, accepter, ...rest } = props;
   return (
     <FormGroup>
@@ -27,7 +27,7 @@ function LoginForm(props) {
     .isEmail('Please enter a valid email address.')
     .isRequired('This field is required.'))
   });
-  
+
   const [state] = useStateContext();
   const [updateState] =  useUpdateStateContext();
   const [loading, setLoading] = useState(false);
@@ -35,12 +35,12 @@ function LoginForm(props) {
     email: '',
     password: ''
   })
-  
+
   const query = useQuery()
   const urlOrganizationID = query.get('organizationID');
   const urlOrgName = query.get('org');
   const urlInviteKey = query.get('inviteKey');
-  
+
   const handleSubmit = (data) =>{
     if(data){
       setLoading(true);

@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { Notification } from 'rsuite';
 
 const StateContext = React.createContext();
 const UpdateStateContext = React.createContext();
@@ -56,7 +55,6 @@ export function StateProvider({children}) {
         axios.get('/user')
         .then(function (response) {
           // handle success
-          console.log(response);
           if(!loginDetails.is_current_user_logged_in){
               setLoginDetails({
                   is_current_user_logged_in: true
@@ -87,6 +85,7 @@ export function StateProvider({children}) {
           })
           setStateLoadingStatus({stateLoading: false})
       }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [authTokenFromLocalStorage])
 
     return (

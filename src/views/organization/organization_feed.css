@@ -420,11 +420,13 @@
 @media all and (max-width: 700px){
     .org_content{
         padding-top: 30px;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
     }
 }
 
 @media all and (max-width: 450px){
     .first_section_container{
-        width: 100%;
+        width: 100% !important;
     }
 }

@@ -32,7 +32,6 @@ function ViewOrganizations(props) {
 
       axios.get('/user/org')
       .then(function (response) {
-        console.log("🚀 ~ file: view_organizations.js ~ line 24 ~ response", {allorg: response})
         setLoading(false)
         setFullPageLoading(false)
         // handle success
@@ -41,7 +40,6 @@ function ViewOrganizations(props) {
         }
         })
         .catch(function (error) {
-          console.log("🚀 ~ file: view_organizations.js ~ line 32 ~ useEffect ~ error", error)
           setLoading(false)
           if(error.message.indexOf('403') !== -1){
             Notification['error']({
@@ -80,6 +78,7 @@ function ViewOrganizations(props) {
           props.history.push('/auth/login')
         }, 2000)
        }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
     return (

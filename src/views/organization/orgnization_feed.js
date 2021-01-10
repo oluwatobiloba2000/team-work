@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './organization_feed.css';
-import { Container, Header, Content, Sidebar, Placeholder, Whisper, Tooltip, Avatar, Icon, Badge, Modal, Button, Panel, Notification, IconButton, Dropdown } from 'rsuite';
+import { Container, Header, Content, Sidebar, Placeholder, Whisper, Tooltip, Avatar, Icon, Badge, Modal, Button, Panel, Notification, Dropdown } from 'rsuite';
 import Logo from '../../components/logo/logo';
 import CustomLoader from '../../components/loader/loader';
 import verifiedSvg from '../../img/verified.svg';

@@ -1,0 +1,97 @@
+.loader_container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader_logo_name{
+    width: fit-content;
+    font-family: Apple-System, Arial, Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', STXihei, sans-serif;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #5b332c;
+}
+
+.loader_corner_one{
+    background: #fd9401;
+    width: 25px;
+    height: 25px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.loader_corner_two{
+    background: #160e1a;
+    width: 25px;
+    height: 25px;
+    margin: 0 0 2px 2px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+.loader_corner_three{
+    background: rgb(230, 0, 126);
+    width: 25px;
+    height: 25px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.loader_corner_four{
+    background: #62829a;
+    width: 25px;
+    height: 25px;
+    margin-left: 2px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.loader_logo_container{
+    display: flex;
+    height: 56px;
+    width: 140px;
+    margin-top: -80px;
+}
+
+.loader_logo_corner_container{
+    width: 70px;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    animation: opacity 0.8s infinite;
+    height: 54px;
+}
+
+@keyframes opacity {
+    0%{
+        opacity: 1;
+    }50%{
+        opacity: 0.5;
+    }100%{
+        opacity: 1;
+    }
+}
+
+.error_icon_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.error_icon_container>svg{
+    width: 60px;
+}

@@ -366,6 +366,7 @@
 .post_gif_body>img{
     border-radius: 12px;
     width: 100%;
+    max-height: 320px;
     border: 1px solid #c3c2c4;
 }
 
@@ -390,7 +391,18 @@
     font-weight: bold;
 }
 
+.mobile_nav_bar{
+    position: absolute !important;
+    background-color: orange;
+    width: 100%;
+    border-radius: 0;
+    color: white;
+    z-index: 5;
+}
 
+.mobile_drawer.rs-drawer-left.rs-drawer-xs, .rs-drawer-right.rs-drawer-xs {
+    width: 300px;
+}
 
 
 @media all and (max-width: 970px){
@@ -402,5 +414,11 @@
 @media all and (max-width: 900px){
     .first_section_container{
         width: 90%;
+    }
+}
+
+@media all and (max-width: 700px){
+    .org_content{
+        padding-top: 30px;
     }
 }

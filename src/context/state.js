@@ -46,10 +46,22 @@ export function StateProvider({children}) {
     })
 
     const [allUserOrganization, setAllUserOrganization] = useState([]);
+    const [currentWindowWidthState, setCurrentWindowWidth] = useState(0);
 
     const authTokenFromLocalStorage = JSON.parse(window.localStorage.getItem('auth-token'));
+    
+
+    function currentWindowWidth(e) {
+      // width: 767
+      setCurrentWindowWidth(window.innerWidth);
+    }
+
     useEffect(()=>{
-        console.count('How many times is useeffect running')
+
+      setCurrentWindowWidth(window.innerWidth);
+      window.addEventListener("resize", currentWindowWidth);
+
+
        if(authTokenFromLocalStorage && !userDetails.id){
         axios.defaults.headers.common['Authorization'] = `Bearer ${authTokenFromLocalStorage}`;
         axios.get('/user')
@@ -85,11 +97,14 @@ export function StateProvider({children}) {
           })
           setStateLoadingStatus({stateLoading: false})
       }
+       return () => {
+        window.removeEventListener("resize", currentWindowWidth);
+      };
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [authTokenFromLocalStorage])
 
     return (
-       <StateContext.Provider value={[{stateLoadingStatus, userDetails, loginDetails, inviteDetails, allUserOrganization}]}>
+       <StateContext.Provider value={[{currentWindowWidthState, stateLoadingStatus, userDetails, loginDetails, inviteDetails, allUserOrganization}]}>
          <UpdateStateContext.Provider value={[{setStateLoadingStatus, setUserDetails, setLoginDetails, setInviteDetails, setAllUserOrganization}]}>
             {children}
          </UpdateStateContext.Provider>

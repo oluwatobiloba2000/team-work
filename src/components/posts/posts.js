@@ -315,7 +315,6 @@ export default function Posts(props) {
                                                         <Icon icon="trash" /> Delete
                                                     </Dropdown.Item>
                                                 }
-                                                {console.log({post})}
                                                 {
                                                     userAccount.id === post.user_id ? <></>
                                                         : <Dropdown.Item onClick={() => flagPostAsInAppropriate(post.post_id)} style={{ color: 'red' }}>

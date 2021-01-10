@@ -214,7 +214,7 @@ export default function AdminPanel(props) {
 
                     {invitedUserLink && <div className="invite_link_container">
                         <h3>Invite Link</h3>
-                        <a rel="noreferrer" target={'_blank'} href={`https://${invitedUserLink}`}>https://{window.location.host}{invitedUserLink}</a>
+                        <a rel="noreferrer" target={'_blank'} href={`https://${window.location.host}${invitedUserLink}`}>https://{window.location.host}{invitedUserLink}</a>
                     </div>}
                 </Modal.Body>
                 <Modal.Footer>

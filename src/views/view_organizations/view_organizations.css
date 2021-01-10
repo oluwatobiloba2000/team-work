@@ -1,0 +1,162 @@
+.view_organization_container{
+    width: 100%;
+}
+
+.view_org_nav{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.welcome_message_container{
+    text-align: center;
+}
+
+.welcome_back_text{
+    color: #5b332c;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.welcome-email{
+    font-size: 18px;
+    font-weight: bolder;
+    color: #62829a;
+}
+
+.all_org_container{
+    width: 465px;
+    margin: 15px auto;
+    min-height: 95px;
+    box-shadow: 0px 1px 6px grey;
+}
+
+.tooltip_org_container{
+    display: flex;
+    align-items: center;
+    padding: 7px 15px 6px 10px;
+    border-bottom: 1px solid #8080805c;
+    font-weight: bold;
+}
+
+.org{
+    display: flex;
+    position: relative;
+    border-bottom: 1px solid #d1d1d1;
+    padding-bottom: 10px;
+    margin: 10px 0px 0px 10px;
+}
+
+.org_avatar{
+    margin-right: 10px;
+}
+
+.org_details{
+    font-weight: bold;
+}
+
+.org_name_span{
+        max-width: 230px;
+        display: inline-block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+}
+
+.org_description_span{
+    font-style: italic;
+    font-size: 13px;
+    max-width: 225px;
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.loader_view_org_container{
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.launch_org_btn{
+    position: absolute !important;
+    right: 8px !important;
+    background-color: #fd9401;
+    color: white;
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
+    border-top-right-radius: 25px;
+}
+
+.created_org{
+    display: flex;
+    align-items: center;
+    width: 569px;
+    justify-content: space-between;
+    margin: 60px auto 0px !important;
+    margin: auto;
+    padding: 10px;
+    background-color: #80808021;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.created_org_avatar{
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
+    border-top-right-radius: 25px;
+    border: 3px solid #fd9401;
+    padding: 2px;
+    margin-right: 8px;
+}
+
+.created_org_avatar>img{
+    width: 127px;
+    height: 168px;
+    top: 36px;
+    right: 16px;
+}
+
+.create_org_btn{
+    background-color: #fd9401;
+    color: white;
+    border-top-left-radius: 33px;
+    border-bottom-left-radius: 33px;
+    border-top-right-radius: 33px;
+}
+
+.pending_invite_text{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+@media all and (max-width: 620px){
+    .all_org_container{
+        width: 90%;
+    }
+
+    .created_org{
+        width: 90%;
+        flex-direction: column;
+    }
+    .org{
+        padding-right: 65px;
+    }
+}
+
+@media all and (max-width: 460px){
+    .org{
+        flex-direction: column;
+    }
+
+    .launch_org_btn{
+        top: 16px !important;
+    }
+    .org_name{
+        position: relative;
+    }
+}

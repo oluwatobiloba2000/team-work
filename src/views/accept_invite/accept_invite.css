@@ -1,0 +1,37 @@
+.accept_invitation_container{
+    width: 100%;
+    height: 100vh;
+}
+
+.accept_invitation_doodle_container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.accept_invitation_doodle_container>svg{
+    width: 345px;
+    height: 236px;
+}
+
+.accept_text{
+    position: absolute;
+    bottom: 115px;
+    font-size: 50px;
+    transform: rotate(-12deg);
+    color: #e6007e;
+}
+
+.third_section{
+    text-align: center;
+}
+
+.accept_invitation_btn{
+    background-color: #fd9401;
+    color: white;
+    margin-top: 20px;
+    width: 25%;
+    border-top-left-radius: 33px;
+    border-bottom-left-radius: 33px;
+    border-top-right-radius: 33px;
+}

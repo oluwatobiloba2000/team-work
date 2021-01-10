@@ -209,13 +209,12 @@ export default function AdminPanel(props) {
                     <Whisper trigger="focus" speaker={<Tooltip>Required</Tooltip>}>
                         <Input onChange={(value) => {
                             setEmailToInvite(value)
-                            console.log({ emailToInvite })
                         }} style={{ width: '100%' }} placeholder="Email Address of the member" />
                     </Whisper>
 
                     {invitedUserLink && <div className="invite_link_container">
                         <h3>Invite Link</h3>
-                        <a rel="noreferrer" target={'_blank'} href={`${window.location.host}${invitedUserLink}`}>{window.location.host}{invitedUserLink}</a>
+                        <a rel="noreferrer" target={'_blank'} href={`https://${invitedUserLink}`}>{window.location.host}{invitedUserLink}</a>
                     </div>}
                 </Modal.Body>
                 <Modal.Footer>

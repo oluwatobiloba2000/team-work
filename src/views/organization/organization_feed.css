@@ -422,3 +422,9 @@
         padding-top: 30px;
     }
 }
+
+@media all and (max-width: 450px){
+    .first_section_container{
+        width: 100%;
+    }
+}

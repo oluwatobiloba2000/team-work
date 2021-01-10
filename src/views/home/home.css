@@ -71,3 +71,42 @@
     color: white;
     font-size: 18px;
 }
+
+@media all and (max-width: 1030px){
+    .home_svg_container>img {
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 780px){
+    .home_svg_container{
+        display: none;
+    }
+    .first_section{
+        width: 100%;
+    }
+
+    .home_text{
+        max-width: 80%;
+    }
+
+    .get_started_btn{
+        width: 83%;
+    }
+}
+
+@media all and (max-width: 400px){
+    .home_nav{
+        flex-direction: column;
+        align-items: end;
+    }
+
+    .home_auth_btn{
+        margin: auto;
+       margin-top: 10px;
+    }
+    
+    .home_container {
+        height: 110vh;
+    }
+}

@@ -16,7 +16,7 @@ function Home() {
                     <Logo />
                 </div>
 
-                <div>
+                <div className="home_auth_btn">
                     <ButtonGroup className="button_group">
                         <Link to="/auth/login">
                             <Button className="login_btn" appearance={'primary'}>Login</Button>

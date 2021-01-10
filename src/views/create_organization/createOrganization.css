@@ -194,3 +194,18 @@
     border-bottom-left-radius: 33px;
     border-top-right-radius: 33px;
 }
+
+.mobile_nav_bar{
+    position: absolute !important;
+    background-color: orange;
+    width: 100%;
+    border-radius: 0;
+    color: white;
+    z-index: 5;
+}
+
+@media all and (max-width: 400px){
+    .create_org_label{
+        font-size: 30px;
+    }
+}

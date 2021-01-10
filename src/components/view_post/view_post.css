@@ -113,3 +113,23 @@
     width: 50%;
     margin-right: 15px;
 }
+
+@media all and (max-width: 700px){
+    .comment_container{
+        width: 100%;
+    }
+
+    .comment_container .rs-modal-content{
+        height: 89vh;
+    }
+
+    .comment_container .rs-modal-body{
+        max-height: 800px;
+        overflow-x: hidden !important;
+    }
+
+    .second_section_container{
+        margin: 0;
+        width: 100%;
+    }
+}

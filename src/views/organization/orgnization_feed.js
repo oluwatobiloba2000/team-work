@@ -8,7 +8,7 @@ import { Route, Switch, useParams, useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
 import AdminPanel from '../../components/admin_panel/admin_panel';
 import Posts from '../../components/posts/posts';
-import { useStateContext } from '../../context/state';
+import { useStateContext , useUpdateStateContext} from '../../context/state';
 const { Paragraph } = Placeholder;
 
 
@@ -25,6 +25,7 @@ export default function OrganizationFeed(props) {
     const [orgDetails, setOrgDetails] = useState([])
     const [currentUserMemberDetailsState, setCurrentUserMemberDetails] = useState([])
     const [openMobileDrawer, setOpenMobileDrawer] = useState(false);
+    const [setStateContext] = useUpdateStateContext();
     const [state] = useStateContext();
 
     function getUserAccount() {
@@ -76,6 +77,17 @@ export default function OrganizationFeed(props) {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [orgId])
+
+    const handleSignout = () =>{
+        window.localStorage.removeItem('auth-token');
+        Notification['success']({
+            title: 'Logged out successfully'
+        });
+        props.history.push('/auth/login');
+        setStateContext.setLoginDetails({
+            is_current_user_logged_in: false
+        })
+    }
 
     function sideBarContent() {
         return (
@@ -158,7 +170,7 @@ export default function OrganizationFeed(props) {
                                 <Dropdown.Item>Edit profile</Dropdown.Item>
                                 {currentUserMemberDetailsState.isadmin && <Dropdown.Item onClick={() => props.history.push(`${url}/admin`)}>Admin Panel</Dropdown.Item>}
                                 <Dropdown.Item divider />
-                                <Dropdown.Item className="dropdown_signout">Sign out</Dropdown.Item>
+                                <Dropdown.Item onClick={()=> handleSignout()} className="dropdown_signout">Sign out</Dropdown.Item>
                             </Dropdown>
 
                             {/* profile details modal */}

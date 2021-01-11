@@ -8,11 +8,15 @@ import { useStateContext } from '../../context/state';
 
 function Home() {
     const [state] = useStateContext();
-
+    const checkToken = ()=> {
+       const token =  window.localStorage.getItem('auth-token');
+       return token ? true : false;
+    }
 
     return (
         <div className="home_container">
-            {state.userDetails.email && <Redirect to="/user/organization"/>}
+            {(state.loginDetails.is_current_user_logged_in && checkToken())  && <Redirect to="/user/organization"/>}
+            {console.log('home has rerendered')}
             <svg style={{position: 'absolute', width: '305px', zIndex: '-1'}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
                   <path fill="rgb(253 168 1 / 26%)" d="M31.3,-26C39,-23.6,42.5,-11.8,46.6,4.1C50.7,20.1,55.5,40.1,47.8,53.9C40.1,67.7,20.1,75.2,-0.4,75.7C-21,76.1,-41.9,69.5,-57.1,55.7C-72.2,41.9,-81.5,21,-78.1,3.4C-74.7,-14.2,-58.6,-28.4,-43.5,-30.7C-28.4,-33.1,-14.2,-23.7,-1.2,-22.5C11.8,-21.3,23.6,-28.4,31.3,-26Z" transform="translate(100 100)" style={{fill: 'rgb(253 168 1 / 26%)'}}/>
             </svg>

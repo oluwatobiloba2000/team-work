@@ -64,7 +64,6 @@ export function StateProvider({children}) {
         axios.defaults.headers.common['Authorization'] = `Bearer ${authTokenFromLocalStorage}`;
         axios.get('/user')
         .then(function (response) {
-          console.log("🚀 ~ file: state.js ~ line 68 ~ response", response)
           // handle success
           if(!loginDetails.is_current_user_logged_in){
               setLoginDetails({

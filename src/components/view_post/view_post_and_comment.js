@@ -198,7 +198,7 @@ function ViewPost(props) {
                                         <img src="https://img.icons8.com/doodle/48/000000/comments.png" alt="comment" />
                                         {/* <span className="comment_count">{commentCount}</span> */}
                                         {/* </div> */}
-                                        <p>Tell Oluwatobiloba how you feel about the post</p>
+                                        <p>Tell {post.firstname} how you feel about the post</p>
                                     </div>
 
 

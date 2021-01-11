@@ -25,8 +25,7 @@ export function StateProvider({children}) {
     });
 
     const [stateLoadingStatus, setStateLoadingStatus] = useState({
-      stateLoading: true,
-      refreshState: false
+      stateLoading: true
     })
 
     const [loginDetails, setLoginDetails] = useState({
@@ -61,11 +60,11 @@ export function StateProvider({children}) {
       setCurrentWindowWidth(window.innerWidth);
       window.addEventListener("resize", currentWindowWidth);
 
-
        if(authTokenFromLocalStorage && !userDetails.id){
         axios.defaults.headers.common['Authorization'] = `Bearer ${authTokenFromLocalStorage}`;
         axios.get('/user')
         .then(function (response) {
+          console.log("🚀 ~ file: state.js ~ line 68 ~ response", response)
           // handle success
           if(!loginDetails.is_current_user_logged_in){
               setLoginDetails({

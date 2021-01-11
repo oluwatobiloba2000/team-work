@@ -4,14 +4,13 @@ import Logo from '../../components/logo/logo';
 import SignupForm from '../../components/signup_form/signup_form';
 import samji_illustrator from '../../img/samji_illustrator.jpeg';
 import './auth.css';
-// import { useStateContext } from '../../context/state';
+
 import { useQuery } from '../../components/useQueryHook/useQuery';
 
 
 
 
 function Auth(props) {
-    // const state = useStateContext();
     const [authType, setAuthType] = useState('login');
     const query = useQuery()
 

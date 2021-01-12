@@ -1,5 +1,8 @@
 # Team work
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b0f24e6a-efff-40e1-910c-15287747c4bf/deploy-status)](https://app.netlify.com/sites/teamily/deploys)
+
+
 (UI implementation) Teamwork is an internal social network for employees of an organization. The goal of this application is to facilitate more interaction between colleagues and promote team bonding
 
 LIVE LINK OF THE APP (https://teamily.netlify.app/)

@@ -13,7 +13,7 @@ import io  from 'socket.io-client';
 const ViewOrganizations = lazy(() => import('./views/view_organizations/view_organizations'));
 const Auth = lazy(() => import('./views/auth/auth'));
 const CreateOrganization = lazy(() => import('./views/create_organization/createOrganization'));
-axios.defaults.baseURL = 'http://localhost:4000/api/v1';
+axios.defaults.baseURL = 'https://teamily-api.herokuapp.com/api/v1';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 export let socket = io('http://localhost:4000/');
 

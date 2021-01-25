@@ -204,6 +204,12 @@
     z-index: 5;
 }
 
+@media all and (max-width: 940px){
+    .create_org_form{
+        width: 100%;
+    }
+}
+
 @media all and (max-width: 400px){
     .create_org_label{
         font-size: 30px;

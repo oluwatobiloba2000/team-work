@@ -5,18 +5,21 @@ import Logo from '../../components/logo/logo';
 import { Form, FormGroup, FormControl, ControlLabel, HelpBlock, Schema } from 'rsuite';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useStateContext } from '../../context/state';
+import useCurrentWindowWidth from '../../components/useCurrentWindowWidth/useCurrentWindowWidth';
+import { Helmet } from 'react-helmet';
 const { Paragraph } = Placeholder;
 
 const images = [
-    "https://res.cloudinary.com/oluwatobby/image/upload/v1608737189/doodle_choice_8_khmtou.jpg",
-    "https://res.cloudinary.com/oluwatobby/image/upload/v1608737189/doodle_choice_4_q5eeu5.jpg",
-    "https://res.cloudinary.com/oluwatobby/image/upload/v1608737189/doodle_choice_3_guwyfg.jpg",
-    "https://res.cloudinary.com/oluwatobby/image/upload/v1608737189/doodle_choice_5_crpxzq.png",
-    "https://res.cloudinary.com/oluwatobby/image/upload/v1608737190/doodle_choice_2_zvwvti.jpg",
-    "https://res.cloudinary.com/oluwatobby/image/upload/v1608737190/doodle_choice_6_xea4wk.png",
-    "https://res.cloudinary.com/oluwatobby/image/upload/v1608737190/doodle_choice_1_qxkvzf.png",
-    "https://res.cloudinary.com/oluwatobby/image/upload/v1608737242/doodle_choice_7_q7omlz.jpg"
+    "https://res.cloudinary.com/oluwatobby/image/upload/v1611523113/patternpad_rsioem.svg",
+    "https://res.cloudinary.com/oluwatobby/image/upload/v1611524535/patternpad_1_e9eak8.svg",
+    "https://res.cloudinary.com/oluwatobby/image/upload/v1611525049/patternpad_3_dwansm.svg",
+    "https://res.cloudinary.com/oluwatobby/image/upload/v1611525049/patternpad_4_brmlq7.svg",
+    "https://res.cloudinary.com/oluwatobby/image/upload/v1611525049/patternpad_5_dmip0u.svg",
+    "https://res.cloudinary.com/oluwatobby/image/upload/v1611525049/patternpad_6_hngtdk.svg",
+    "https://res.cloudinary.com/oluwatobby/image/upload/v1611525049/patternpad_2_b4zbgm.svg",
+    "https://res.cloudinary.com/oluwatobby/image/upload/v1611525049/patternpad_1_zlxjbn.svg",
+    "https://res.cloudinary.com/oluwatobby/image/upload/v1611524535/patternpad_1_e9eak8.svg",
+    "https://res.cloudinary.com/oluwatobby/image/upload/v1611523378/undraw_Selecting_team_re_ndkb_oqt5fh.svg",
 ]
 
 export default function CreateOrganization(props) {
@@ -43,16 +46,11 @@ export default function CreateOrganization(props) {
         headerImg: ''
     })
 
+    const [currentWindowWidth] = useCurrentWindowWidth();
     const [openMobileDrawer, setOpenMobileDrawer] = useState(false);
 
-    const [state] = useStateContext();
-    // const [orgImg, setOrgImg] = useState('')
 
     const createOrganization = (orgImg) => {
-        // if(!orgImg) return Notification["error"]({
-        //     title: 'Image Url Error',
-        //     description: "Image Url not avaliable"
-        // })
         axios.post('/org/create', {
             name: formValues.name,
             orgImg: orgImg,
@@ -153,7 +151,7 @@ export default function CreateOrganization(props) {
     }
 
     const returnRandomHeaderPics = () => {
-        const randomNum = Math.floor(Math.random() * 8) + 1;
+        const randomNum = Math.floor(Math.random() * 10) + 1;
         return images[randomNum];
     }
 
@@ -194,6 +192,9 @@ export default function CreateOrganization(props) {
     function sideBarContent() {
         return (<>
             <div className="org_dash_name">
+                <Helmet>
+                    <title>create organization || Teamily</title>
+                </Helmet>
                 {formValues.name
                     ? <Whisper placement="top" trigger="hover" speaker={<Tooltip>{formValues.name}</Tooltip>}>
                         <p style={{ cursor: 'pointer' }}>{formValues.name}</p>
@@ -227,32 +228,32 @@ export default function CreateOrganization(props) {
                 <Logo className="org_logo" />
             </Header>
             <Container>
-                {state.currentWindowWidthState > 700
-                            ?
-                            <Sidebar className="org_sidebar">
-                                {sideBarContent()}
-                            </Sidebar>
-                            :
-                            <>
-                            <IconButton className="mobile_nav_bar" onClick={()=> setOpenMobileDrawer(true)} icon={<Icon icon="bars"/>}> Preview Organization Details</IconButton>
-                                <Drawer
-                                    size={'xs'}
-                                    placement={'left'}
-                                    show={openMobileDrawer}
-                                    className="mobile_drawer"
-                                    onHide={()=> setOpenMobileDrawer(false)}>
-                                        {/* <Drawer.Header>
+                {currentWindowWidth > 700
+                    ?
+                    <Sidebar className="org_sidebar">
+                        {sideBarContent()}
+                    </Sidebar>
+                    :
+                    <>
+                        <IconButton className="mobile_nav_bar" onClick={() => setOpenMobileDrawer(true)} icon={<Icon icon="bars" />}> Preview Organization Details</IconButton>
+                        <Drawer
+                            size={'xs'}
+                            placement={'left'}
+                            show={openMobileDrawer}
+                            className="mobile_drawer"
+                            onHide={() => setOpenMobileDrawer(false)}>
+                            {/* <Drawer.Header>
                                             <Drawer.Title>Drawer Title</Drawer.Title>
                                         </Drawer.Header> */}
-                                        <Drawer.Body>
-                                            {sideBarContent()}
-                                        </Drawer.Body>
-                                    <Drawer.Footer>
-                                          <Button style={{width: '100%'}} onClick={() => setOpenMobileDrawer(false)}  color="orange">Close</Button>
-                                    </Drawer.Footer>
-                                </Drawer>
-                            </>
-                        }
+                            <Drawer.Body>
+                                {sideBarContent()}
+                            </Drawer.Body>
+                            <Drawer.Footer>
+                                <Button style={{ width: '100%' }} onClick={() => setOpenMobileDrawer(false)} color="orange">Close</Button>
+                            </Drawer.Footer>
+                        </Drawer>
+                    </>
+                }
                 <Content className="create_org_content org_content">
                     <Form onSubmit={handleSubmit} onChange={(values) => setFormValues({ ...formValues, name: values.name, description: values.description })} model={model} className="create_org_form" fluid>
                         <FormGroup>

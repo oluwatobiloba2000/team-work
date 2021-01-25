@@ -1,0 +1,116 @@
+.thread_header{
+    display: flex;
+    padding: 7px;
+    align-items: center;
+    background: white;
+    justify-content: space-between;
+}
+
+
+.close_thread_btn{
+    width: 40px;
+    height: 40px;
+    border-radius: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0b0e21;;
+}
+
+.thread_post{
+    padding: 10px 10px 10px 0px;
+}
+
+.thread_divider{
+    margin-left: 12px !important;
+}
+.thread_divider.rs-divider-horizontal.rs-divider-with-text::before, .rs-divider-horizontal.rs-divider-with-text::after{
+    border-top: 1px solid #0b0e21;
+}
+
+.replies_list{
+    margin-top: 0px !important;
+    display: inline !important;
+    margin-left: -3px;
+}
+
+.replies_title{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding-left: 7px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bolder;
+    background-color: #0b0e21;
+    color: white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 50%;
+    padding: 3px;
+}
+
+.thread_input_container{
+    position: sticky;
+    width: 100%;
+    bottom: -39px;
+}
+
+.thread_input_container .rs-input-group{
+    height: 73px;
+}
+
+.thread_container{
+    position: relative;
+    height: 92vh;
+    overflow: auto;
+    padding-bottom: 40px;
+}
+
+.thread_username{
+    max-width: 128px;
+    margin: 0px 10px;
+    font-weight: bolder;
+    font-size: 14px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.thread_input{
+    margin: 0px 10px;
+    font-size: 12px;
+    color: black;
+    border: 3px solid #0b0e21;
+}
+
+.thread_post_btn{
+    height: 82% !important;
+    width: 39px !important;
+    background-color: black !important;
+    color: white !important;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+@media all and (max-width: 1050px){
+    .thread_wrapper{
+        position: absolute !important;
+        right: 0;
+        left: 0;
+        z-index: 1;
+        width: 100% !important;
+        background-color: #d2d2d2;
+    }
+}
+
+@media all and (max-width: 800px){
+    .thread_input_container{
+        bottom: -5px;
+    }
+
+    .thread_username{
+        max-width: 211px;
+    }
+}

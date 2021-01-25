@@ -7,7 +7,7 @@ import AcceptInvite from './views/accept_invite/accept_invite';
 import { StateProvider } from './context/state';
 import CustomLoader from './components/loader/loader';
 import org_feed_v2 from './views/organization_feed_v2/org_feed';
-import io  from 'socket.io-client';
+// import io  from 'socket.io-client';
 // import OrganizationFeed from './views/organization/orgnization_feed';
 
 const ViewOrganizations = lazy(() => import('./views/view_organizations/view_organizations'));
@@ -15,7 +15,7 @@ const Auth = lazy(() => import('./views/auth/auth'));
 const CreateOrganization = lazy(() => import('./views/create_organization/createOrganization'));
 axios.defaults.baseURL = 'https://teamily-api.herokuapp.com/api/v1';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-export let socket = io('http://localhost:4000/');
+// export let socket = io('http://localhost:4000/');
 
 function App() {
 

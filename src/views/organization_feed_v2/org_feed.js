@@ -315,7 +315,7 @@ function Org_feed() {
 
                                                 {(orgDetails && orgDetails.header_img) && <img style={{ width: '100%', height: '280px' }} src={orgDetails.header_img} alt="growth" />}
 
-                                                <h1 style={{ textAlign: 'center' }}>
+                                                <h1 className="org_welcome_text" style={{ textAlign: 'center' }}>
                                                     Welcome To &nbsp;{orgDetails.name}
                                                 </h1>
                                                 <h3 style={{ textAlign: 'center', fontSize: '20px' }}>Channels are where your team communicates.</h3>

@@ -309,10 +309,14 @@
   }
 
   .intro_org_container > div:first-child {
-    height: 50%;
+    height: auto;
   }
 
   .create_channel_modal {
     width: 96%;
+  }
+
+  .org_welcome_text{
+    font-size: 20px;
   }
 }

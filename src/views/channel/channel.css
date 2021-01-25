@@ -1,0 +1,271 @@
+.channel_title_header{
+    width: 100%;
+    background-color: white;
+    height: 41.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 8px;
+    padding-top: 6px;
+    border-bottom: 1px solid #8080803d;
+    box-shadow: 1px 1px 7px #80808052;
+}
+
+.channel_details{
+    display: flex;
+    position: relative;
+}
+
+.channel_details::after{
+    content: '';
+    position: absolute;
+    height: 20px;
+    right: -6px;
+    width: 1px;
+    background-color: #7777779e;
+}
+
+.channel_details>span{
+    display: flex;
+}
+
+.channel_header_hash{
+    font-size: 15px;
+    font-weight: bolder;
+    color: #04050c;
+}
+
+.channel_header_name{
+    font-size: 15px;
+    text-transform: capitalize;
+    max-width: 169px;
+    font-weight: bolder;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.channel_list_container{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.org_header_container{
+    background-color: #8080804f;
+}
+
+.header_members_count{
+    margin-left: 13px;
+    margin-top: 4px;
+}
+
+.header_members_count svg{
+    width: 17px;
+}
+
+.post_count{
+    margin-left: 18px;
+    margin-top: 5px;
+}
+
+.search_container{
+    position: relative;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.search_container>input{
+    padding-left: 25px;
+    border: 1px solid #0b0e21;
+    border-radius: 5px;
+}
+     
+.search_container>svg{
+    width: 20px;
+    position: absolute;
+    left: 4px;
+    color: #0b0e21;
+}
+
+.search_and_options{
+    display: flex;
+    align-items: center;
+}
+
+.more_icon{
+    transform: rotate(90deg);
+    margin-right: 20px;
+    font-size: 17px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: #0b0e21;
+}
+
+.post{
+    background-color: transparent;
+}
+
+.post_body{
+    padding-right: 12px;
+}
+
+.poster_details{
+    display: flex;
+    margin-left: 8px;
+}
+.poster_details>span:last-child{
+    font-size: 11px;
+    font-weight: bolder;
+}
+
+.username{
+    margin: 0px 10px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.post_body_content{
+    margin-left: 62px;
+    white-space: pre-wrap;
+    background-color: white;
+    margin-top: -19px;
+    padding: 12px;
+    margin-right: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.post_pics{
+    width: 200px;
+    height: 154px;
+    display: flex;
+    border-left: 3px solid #0b0e21c4;
+    align-items: center;
+    margin-top: 11px;
+    padding-left: 10px;
+}
+
+.post_pics>img{
+    width: 100%;
+    height: 100%;
+}
+
+.post_list_container{
+    height: 94vh;
+    overflow-x: auto;
+    margin-right: -12px;
+    padding-right: 10px;
+    padding-bottom: 25px !important;
+}
+
+.post_input_container{
+    position: absolute;
+    width: 99%;
+    height: 120px;
+    bottom: 10px;
+    border: 2px solid black;
+    background: white;
+    border-top-right-radius: 14px;
+    border-top-left-radius: 14px;
+}
+
+
+
+.post_input_container>textarea{
+    height: 75px;
+    margin-right: -7px;
+    margin-left: 0px;
+    background: white;
+    border-top-right-radius: 14px;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.input_toolbox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.input_toolbox>button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px !important;
+    width: 44px;
+    padding: 0;
+}
+
+.input_toolbox>button:last-child{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    color: white;
+}
+
+.input_toolbox>button:last-child>i{
+    left: 4px !important;
+    top: -3px !important;
+}
+
+.send_icon{
+    font-size: 14px;
+    padding: 0;
+    top: 5px;
+    left: 3px;
+}
+
+.online_members_count{
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bolder;
+}
+
+
+.thread{
+    margin-top: 6px;
+}
+
+.time_posted{
+    color: #1675e0;
+    cursor: pointer;
+}
+
+@media all and (max-width: 800px){
+    .post_input_container{
+        bottom: 40px !important;
+    }
+
+    .channel_title_header{
+        height: 55px !important;
+    }
+
+    .channel_title_header>div:first-child{
+        display: flex;
+        margin-top: 18px;
+    }
+
+    .channel_details{
+        position: absolute;
+    top: -1px;
+    }
+
+    .channel_details::after{
+        display: none;
+    }
+
+    .channel_header_name{
+        max-width: 335px !important;
+    }
+
+}

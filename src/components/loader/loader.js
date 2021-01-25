@@ -1,10 +1,11 @@
 import React from 'react';
-import { Button, Loader } from 'rsuite';
+import { Button, Loader, Message } from 'rsuite';
 import './loader.css';
 
 function CustomLoader(props) {
     return (
         <div className="loader_container">
+           {props.error && <Message showIcon full type="error" description={props.errorMessage} />}
             <div className="loader_logo_container">
             <div className="loader_logo_corner_container">
                 <div className="loader_corner_one"></div>

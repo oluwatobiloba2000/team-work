@@ -137,7 +137,7 @@ export default function Thread(props) {
                                     return (
                                         <List.Item className="post" key={index} index={index}>
                                             <div className="poster_details">
-                                                <LetterAvatar letter="Anani oluwatobi" />
+                                                <LetterAvatar letter={`${singleComment.firstname} ${singleComment.lastname}`} />
                                                 <span className="thread_username">{singleComment.firstname} {singleComment.lastname}</span>
                                                 <span className="thread_reply_time">{dayjs(singleComment.createdat).fromNow()}</span>
                                             </div>

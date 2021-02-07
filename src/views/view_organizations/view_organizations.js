@@ -77,7 +77,7 @@ function ViewOrganizations(props) {
 return (
   <div className="view_organization_container">
      <Helmet>
-            <title>{state.userDetails.email} organizations || teamily</title>
+            <title>{`${state.userDetails && state.userDetails.email} organizations || teamily`}</title>
     </Helmet>
     {fullPageLoading.fullPageLoading
       ? <CustomLoader errorMessage={fullPageLoading.errorMessage} error={fullPageLoading.error} />

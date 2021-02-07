@@ -122,7 +122,7 @@
 
 .username{
     margin: 0px 10px;
-    font-size: 15px;
+    font-size: 11px;
     font-weight: bolder;
 }
 
@@ -164,7 +164,7 @@
 .post_input_container{
     position: absolute;
     width: 99%;
-    height: 120px;
+    /* height: 120px; */
     bottom: 10px;
     border: 2px solid black;
     background: white;
@@ -240,6 +240,33 @@
     color: #1675e0;
     cursor: pointer;
 }
+
+.preview_gif{
+    width: 256px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 200px;
+}
+
+.gif_upload_container{
+    margin: 7px;
+    position: relative;
+    display: flex;
+    width: 28px;
+    justify-content: center;
+}
+
+.gif_upload_container>svg{
+    width: 18px;
+}
+
+#upload_gif_input{
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    width: 42px;
+}
+
 
 @media all and (max-width: 800px){
     .post_input_container{
